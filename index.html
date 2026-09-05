@@ -839,7 +839,7 @@
         <a href="#invitation" class="nav-link">Invitation</a>
         <a href="#mandhi" class="nav-link">Mandhi</a>
         <a href="#walima" class="nav-link">Walima</a>
-        <a href="#family-names" class="nav-link">Family</a>
+        <a href="#guest-note" class="nav-link">Note</a>
         <a href="#location" class="nav-link">Location</a>
         <a href="#rsvp" class="nav-link">RSVP</a>
     </nav>
@@ -928,12 +928,12 @@
             
             <div class="info-cards-container">
                 <div class="info-card"><span class="card-label">DATE</span><p class="card-value">20 Sep 2026</p></div>
-                <div class="info-card"><span class="card-label">TIME</span><p class="card-value">6:00 PM</p></div>
+                <div class="info-card"><span class="card-label">TIME</span><p class="card-value">12:00 PM – 2:00 PM</p></div>
                 <div class="info-card"><span class="card-label">VENUE</span><p class="card-value">Rajput Garden and Banquet Hall Branch 01</p></div>
             </div>
 
             <!-- Add to Calendar Link -->
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Walima+Reception+-+Mr.+%26+Mrs.+Saif&dates=20260920T130000Z/20260920T160000Z&details=Join+us+to+celebrate+the+Walima+Reception+of+Mr.+%26+Mrs.+Saif.&location=Rajput Garden and Banquet Hall Branch 01" target="_blank" class="btn-outline">📅 Add to Google Calendar</a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Walima+Reception+-+Mr.+%26+Mrs.+Saif&dates=20260920T070000Z/20260920T090000Z&details=Join+us+to+celebrate+the+Walima+Reception+of+Mr.+%26+Mrs.+Saif.&location=Rajput Garden and Banquet Hall Branch 01" target="_blank" class="btn-outline">📅 Add to Google Calendar</a>
         </div>
     </section>
 
@@ -962,22 +962,18 @@
         </div>
     </section>
 
-    <!-- 4B. FAMILY NAMES SECTION -->
-    <section id="family-names" class="family-names-section fade-in">
+    <!-- 4B. GUEST REQUEST NOTE SECTION -->
+    <section id="guest-note" class="family-names-section fade-in">
         <div class="container">
-            <h2 class="section-title">With Blessings From</h2>
+            <h2 class="section-title">A Small Request</h2>
             <div class="pattern-divider">
                 <span class="line"></span>
                 <svg viewBox="0 0 28 28"><polygon points="14,2 26,14 14,26 2,14"/><circle cx="14" cy="14" r="5"/></svg>
                 <span class="line right"></span>
             </div>
-            <div class="family-names-grid">
-                <div class="family-name-card">Abdul Razaaq <span class="amp">&</span> Mrs. Razaaq</div>
-                <div class="family-name-card">Abdul Rehman <span class="amp">&</span> Mrs. Rehman</div>
-                <div class="family-name-card">Nisar Ahmed <span class="amp">&</span> Mrs. Nisar</div>
-                <div class="family-name-card">Muhammad Ashfaq <span class="amp">&</span> Mrs. Ashfaq</div>
-                <div class="family-name-card">Muhammad Bilal <span class="amp">&</span> Mrs. Bilal</div>
-            </div>
+            <p class="intro-text">
+                We kindly request all our beloved guests to arrive on time, so we may begin the celebrations together and cherish every moment as one family.
+            </p>
         </div>
     </section>
 
@@ -1049,7 +1045,7 @@
         });
 
         // --- 1. COUNTDOWN TIMER (with circular rings) ---
-        const countdownTarget = new Date("September 20, 2026 18:00:00").getTime();
+        const countdownTarget = new Date("September 20, 2026 12:00:00").getTime();
         const RING_CIRC = 339.3;
         function setRing(id, fraction) {
             const ring = document.getElementById(id);
