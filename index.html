@@ -11,6 +11,14 @@
     <meta property="og:title" content="Mr. & Mrs. Saif | Walima Invitation">
     <meta property="og:description" content="Join Mr. & Mrs. Saif as they celebrate their Walima Reception.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Privacy: keep this invitation out of search engines -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon (gold ring icon) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23D4AF37' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23F5D76E'/%3E%3C/svg%3E">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -760,6 +768,88 @@
             border-color: var(--bright-gold);
         }
 
+        /* RSVP SUCCESS MESSAGE */
+        .rsvp-success {
+            display: none;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            background: rgba(212, 175, 55, 0.04);
+        }
+
+        .rsvp-success .success-icon {
+            font-size: 2.5rem;
+            color: var(--bright-gold);
+            margin-bottom: 15px;
+        }
+
+        .rsvp-success h3 {
+            font-size: 1.6rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .rsvp-success p {
+            color: var(--secondary-text);
+            font-family: var(--font-heading);
+            font-style: italic;
+        }
+
+        /* VENUE QR CODE */
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .qr-container img {
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .qr-container span {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--champagne-gold);
+            text-transform: uppercase;
+        }
+
+        /* WHATSAPP SHARE BUTTON */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(5, 5, 5, 0.8);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            font-family: var(--font-text);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-btn:hover {
+            background: var(--primary-gold);
+            color: var(--primary-bg);
+        }
+
         /* CLOSING SECTION */
         .closing-section {
             background-color: var(--secondary-bg);
@@ -802,6 +892,7 @@
         @media screen and (max-width: 768px) {
             .navbar { display: none; }
             .music-btn { bottom: 20px; left: 20px; padding: 8px 15px; }
+            .whatsapp-btn { bottom: 20px; right: 20px; padding: 8px 15px; }
             .couple-names { font-size: 3rem; }
             .bismillah { font-size: 2rem; }
             .closing-heading { font-size: 1.5rem; }
@@ -832,6 +923,7 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
     <button id="music-toggle" class="music-btn">🎵 Play Music</button>
+    <button id="whatsapp-share" class="whatsapp-btn">📲 Share Invite</button>
 
     <!-- STICKY NAVBAR -->
     <nav class="navbar">
@@ -989,6 +1081,12 @@
             <!-- GOOGLE MAP IFRAME -->
             <div class="map-container">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13819.31140795759!2d71.48098213330594!3d30.01309906117276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b3f0042bc9039%3A0x40a10d57111e4d39!2sRajput%20Garden%20and%20Banquet%20Hall%20Branch%2001!5e0!3m2!1sen!2s!4v1787140680154!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>            </div>
+
+            <!-- VENUE QR CODE (SCAN FOR DIRECTIONS) -->
+            <div class="qr-container">
+                <img src="venue-qr.png" alt="Scan for Directions">
+                <span>Scan for Directions</span>
+            </div>
         </div>
     </section>
 
@@ -998,7 +1096,7 @@
             <h2 class="section-title">RSVP</h2>
             <p class="intro-text" style="margin-bottom: 30px;">Please let us know if you will be joining us.</p>
             
-            <form class="rsvp-form" action="https://formspree.io/f/mqpzggby" method="POST">
+            <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/mqpzggby" method="POST">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="name" required placeholder="Enter your name">
@@ -1014,6 +1112,12 @@
                 </div>
                 <button type="submit" class="btn-primary" style="width: 100%;">Confirm Attendance</button>
             </form>
+
+            <div id="rsvp-success" class="rsvp-success">
+                <div class="success-icon">✨</div>
+                <h3>Shukriya!</h3>
+                <p>Your RSVP has been received. We look forward to celebrating with you.</p>
+            </div>
         </div>
     </section>
 
@@ -1151,6 +1255,47 @@
             }
             isPlaying = !isPlaying;
         });
+
+        // --- 5. RSVP AJAX SUBMIT + CONFIRMATION MESSAGE ---
+        const rsvpForm = document.getElementById('rsvp-form');
+        const rsvpSuccess = document.getElementById('rsvp-success');
+        if (rsvpForm) {
+            rsvpForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+                const originalLabel = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                fetch(rsvpForm.action, {
+                    method: 'POST',
+                    body: new FormData(rsvpForm),
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        rsvpForm.style.display = 'none';
+                        rsvpSuccess.style.display = 'block';
+                    } else {
+                        submitBtn.textContent = originalLabel;
+                        submitBtn.disabled = false;
+                        alert('Something went wrong. Please try again.');
+                    }
+                }).catch(() => {
+                    submitBtn.textContent = originalLabel;
+                    submitBtn.disabled = false;
+                    alert('Something went wrong. Please check your connection and try again.');
+                });
+            });
+        }
+
+        // --- 6. WHATSAPP SHARE BUTTON ---
+        const whatsappBtn = document.getElementById('whatsapp-share');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('click', () => {
+                const message = "You're invited! Join Mr. & Mrs. Saif's Mandhi & Walima celebrations: " + window.location.href;
+                window.open('https://wa.me/?text=' + encodeURIComponent(message), '_blank');
+            });
+        }
     </script>
 </body>
 </html>
