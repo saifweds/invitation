@@ -408,7 +408,8 @@
 
         /* HERO SECTION */
         .hero-section {
-            height: 100vh;
+            min-height: 100vh;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -417,6 +418,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            padding: 120px 20px 90px;
         }
 
         .hero-section::before {
@@ -428,7 +430,7 @@
             z-index: 3;
         }
 
-        .hero-content { position: relative; z-index: 2; margin-top: 40px;}
+        .hero-content { position: relative; z-index: 2; }
 
         /* GOLD FLOATING BALLS BEHIND HERO TEXT */
         #hero-orbs {
@@ -483,6 +485,19 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-bottom: 20px;
+        }
+
+        .hero-urdu-line {
+            font-family: var(--font-arabic);
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--bright-gold);
+            direction: rtl;
+            margin-top: -8px;
+            margin-bottom: 28px;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 20px rgba(245, 215, 110, 0.35);
         }
 
         .couple-names {
@@ -984,6 +999,8 @@
             .whatsapp-btn { bottom: 20px; right: 20px; padding: 8px 15px; font-size: 0.7rem; }
             .container { padding: 60px 0; }
             .couple-names { font-size: 2.6rem; letter-spacing: 0; }
+            .hero-urdu-line { font-size: 1.6rem; padding: 0 10px; }
+            .hero-section { padding: 100px 15px 70px; }
             .invite-text { font-size: 1rem; padding: 0 10px; }
             .bismillah { font-size: 2rem; }
             .quran-ayat { font-size: 0.9rem; padding: 0 15px; }
@@ -1048,6 +1065,7 @@
         <a href="#mandhi" class="nav-link">Mandhi</a>
         <a href="#walima" class="nav-link">Walima</a>
         <a href="#guest-note" class="nav-link">Note</a>
+        <a href="#family-names" class="nav-link">Family</a>
         <a href="#location" class="nav-link">Location</a>
         <a href="#rsvp" class="nav-link">RSVP</a>
     </nav>
@@ -1067,6 +1085,7 @@
         <a href="#mandhi" class="mobile-nav-link">Mandhi</a>
         <a href="#walima" class="mobile-nav-link">Walima</a>
         <a href="#guest-note" class="mobile-nav-link">Note</a>
+        <a href="#family-names" class="mobile-nav-link">Family</a>
         <a href="#location" class="mobile-nav-link">Location</a>
         <a href="#rsvp" class="mobile-nav-link">RSVP</a>
     </div>
@@ -1080,6 +1099,7 @@
             <p class="quran-ayat">"And We created you in pairs"</p>
             
             <p class="pre-title">With the blessings of Allah,</p>
+            <p class="hero-urdu-line">محمد سیف اللہ ولد نثار احمد</p>
             <h1 class="couple-names" id="couple-names-hero">Mr. & Mrs. Saif</h1>
             <p class="invite-text">we joyfully invite you to celebrate their Walima Reception</p>
             <div class="pattern-divider">
@@ -1201,6 +1221,25 @@
             <p class="intro-text">
                 We kindly request all our beloved guests to arrive on time, so we may begin the celebrations together and cherish every moment as one family.
             </p>
+        </div>
+    </section>
+
+    <!-- 4C. FAMILY NAMES SECTION -->
+    <section id="family-names" class="family-names-section fade-in">
+        <div class="container">
+            <h2 class="section-title">With Blessings From</h2>
+            <div class="pattern-divider">
+                <span class="line"></span>
+                <svg viewBox="0 0 28 28"><polygon points="14,2 26,14 14,26 2,14"/><circle cx="14" cy="14" r="5"/></svg>
+                <span class="line right"></span>
+            </div>
+            <div class="family-names-grid">
+                <div class="family-name-card">Abdul Razaaq <span class="amp">&</span> Mrs. Razaaq</div>
+                <div class="family-name-card">Abdul Rehman <span class="amp">&</span> Mrs. Rehman</div>
+                <div class="family-name-card">Nisar Ahmed <span class="amp">&</span> Mrs. Nisar</div>
+                <div class="family-name-card">Muhammad Ashfaq <span class="amp">&</span> Mrs. Ashfaq</div>
+                <div class="family-name-card">Muhammad Bilal <span class="amp">&</span> Mrs. Bilal</div>
+            </div>
         </div>
     </section>
 
